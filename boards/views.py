@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponse, Http404
 from .models import Board, Topic, Post
 # Create your views here.
 
@@ -10,4 +10,14 @@ def home(request):
 
 
 def board_topics(request, board_id):
-    return render(request, 'topics.html')
+    # try:
+    #     board = Board.objects.get(pk=board_id)
+    # except Board.DoesNotExist:
+    #     raise Http404
+    board = get_object_or_404(Board, pk=board_id)
+
+    return render(request, 'topics.html', {'board': board})
+
+
+def about(request):
+    return render(request, 'about.html')
