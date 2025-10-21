@@ -28,6 +28,10 @@ Discussion_board folder structure " Our project Name"
 7.5- migrations => auto-generated DB migration files (0001_initial.py, etc.) that track schema changes.
 7.6- forms.py => Django forms and ModelForms for validating input and rendering form HTML.
 7.7- views.py => request handlers (function-based or class-based views) that return responses/templates.
-
+----------------------------------------------------------------------
+8- templates folder: contain the all HTML files we will use in the project
+9- Static folder : contain all css , js , fonts and so on 
 ------------------------------------------------------------------------
-note(1): django models by defult has id [unique , auto incremented] so you don't need to add it  
+note(1): django models by defult has id [unique , auto incremented] so you don't need to add it 
+
+note(2) : 
