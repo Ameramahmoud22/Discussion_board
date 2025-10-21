@@ -7,3 +7,9 @@ from django.contrib.auth.models import User
 class Board(models.Model):
     name = models.CharField(max_length=30, unique=True)
     description = models.CharField(max_length=180)
+
+
+class Topic(models.Model):
+    subject = models.CharField(max_length=250)
+    board = models.ForeignKey(
+        Board, related_name="topics", on_delete=models.CASCADE)
