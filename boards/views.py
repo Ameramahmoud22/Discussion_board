@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Board, Topic, Post
 # Create your views here.
 
 
 def home(request):
-    return HttpResponse("Hello My Name is Amera , And this is my first website")
+    boards = Board.objects.all()
+    return render(request, 'home.html', {'boards': boards})
