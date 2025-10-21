@@ -15,3 +15,4 @@ class Topic(models.Model):
         Board, related_name="topics", on_delete=models.CASCADE)     # one-to-many relation with Board
     created_by = models.ForeignKey(
         User, related_name="topics", on_delete=models.CASCADE)     # one-to-one relation with User
+    created_dt = models.DateTimeField(auto_now_add=True)
