@@ -7,3 +7,7 @@ from .models import Board, Topic, Post
 def home(request):
     boards = Board.objects.all()
     return render(request, 'home.html', {'boards': boards})
+
+
+def board_topics(request, board_id):
+    return render(request, 'topics.html')
