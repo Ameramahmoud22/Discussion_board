@@ -1,0 +1,33 @@
+Explain The folder structure in Django project :
+
+Discussion_board folder structure " Our project Name"
+
+1- init.py => marks the directory as a Python package. [handle all python packages]
+2- settings.py => main configuration (INSTALLED_APPS, DATABASES, SECRET_KEY, DEBUG, TEMPLATES, STATIC). 
+   Edit here for environment and app settings. [control all my app ] 
+   "ده اللى فيه حاجات كتير جاهزة زى ال authentication , sessions ......  "
+
+3-urls.py => root URL router; include app urlconfs and top-level routes here. [control mapping of pages]
+
+4-wsgi.py => WSGI app used in production (Gunicorn/uWSGI); entry point for synchronous servers.|both for
+5-asgi.py => ASGI app for async servers (channels, websockets)                                 |deployment
+
+---------------------------------------------------------------
+
+6- manage.py => CLI entry: runserver, migrate, createsuperuser; sets DJANGO_SETTINGS_MODULE.
+   " Used to run your project , deal with DB with migrations , test cases ,and so on" 
+   " manage any commands"
+
+-----------------------------------------------------------------
+7-boards folder structure " for handling boards we will upload articles on it"
+
+7.1 - init.py => marks the folder as a Python package so Django can import it [all packages]
+7.2-  apps.py  => AppConfig class (app name, ready() hook for startup tasks such as signal registration). [it's like settings.py in the main project ]
+7.3- admin.py  => register models here so they appear and are manageable in Django admin. [as you know that django has a built in panel on it so this file help you manage this admin panel ]
+7.4- models.py => define database models (e.g., Board, Topic, Post); maps Python classes to DB tables.
+7.5- migrations => auto-generated DB migration files (0001_initial.py, etc.) that track schema changes.
+7.6- forms.py => Django forms and ModelForms for validating input and rendering form HTML.
+7.7- views.py => request handlers (function-based or class-based views) that return responses/templates.
+
+------------------------------------------------------------------------
+note(1): django models by defult has id [unique , auto incremented] so you don't need to add it  

@@ -12,4 +12,6 @@ class Board(models.Model):
 class Topic(models.Model):
     subject = models.CharField(max_length=250)
     board = models.ForeignKey(
-        Board, related_name="topics", on_delete=models.CASCADE)
+        Board, related_name="topics", on_delete=models.CASCADE)     # one-to-many relation with Board
+    created_by = models.ForeignKey(
+        User, related_name="topics", on_delete=models.CASCADE)     # one-to-one relation with User
