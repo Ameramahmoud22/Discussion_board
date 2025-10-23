@@ -1,51 +1,41 @@
-{% load static %}
+{% extends 'base.html' %}
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Boards</title>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
-  </head>
 
-  <body>
-    <div class="container mt-4">
-      <!-- header -->
-      <div class="p-3 mb-4 bg-light border rounded">
-        <h1 class="h4 text-muted mb-0">Boards</h1>
-      </div>
+{% block title %}Boards{% endblock %}
 
-      <!-- table -->
-      <table class="table table-hover align-middle">
-        <thead class="table-dark">
-          <tr>
-            <th>Board</th>
-            <th>Posts</th>
-            <th>Topic</th>
-            <th>Last Post</th>
-          </tr>
-        </thead>
+{% block header%}Boards{% endblock %}
+ 
+ 
+ {% block content %}
+<!-- table -->
+<table class="table table-hover align-middle">
+  <thead class="table-dark">
+    <tr>
+      <th>Board</th>
+      <th>Posts</th>
+      <th>Topic</th>
+      <th>Last Post</th>
+    </tr>
+  </thead>
 
-        <tbody>
-          {% for board in boards %}
-          <tr>
-            <td>
-              <a
-                href="{% url 'board_topics' board.pk %}"
-                class="fw-semibold text-decoration-none"
-              >
-                {{ board.name }}
-              </a>
-              <small class="text-muted d-block">{{ board.description }}</small>
-            </td>
-            <td>0</td>
-            <td>0</td>
-            <td></td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    </div>
-  </body>
-</html>
+  <tbody>
+    {% for board in boards %}
+    <tr>
+      <td>
+        <a
+          href="{% url 'board_topics' board.pk %}"
+          class="fw-semibold text-decoration-none"
+        >
+          {{ board.name }}
+        </a>
+        <small class="text-muted d-block">{{ board.description }}</small>
+      </td>
+      <td>0</td>
+      <td>0</td>
+      <td></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
