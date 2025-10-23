@@ -1,3 +1,77 @@
+                  Django MVT Architecture Explained
+1️ What is MVT?
+
+MVT stands for Model – View – Template.
+
+It’s Django’s version of the MVC (Model – View – Controller) pattern used in web development.
+
+Django automatically handles most of the “controller” part internally, which simplifies development.
+
+2️⃣ Model
+
+The Model is responsible for data and database operations.
+
+It defines the structure of your data (like a table in a database).
+
+Each model is a Python class that subclasses django.db.models.Model.
+
+Django automatically creates database tables from your models using migrations.
+Purpose:
+Defines what data is stored and how it is stored.
+---------------------------------------------------------
+3️⃣ View
+
+The View contains the business logic of your application.
+
+It interacts with the Model to retrieve, process, and send data to the Template.
+
+A view receives an HTTP request and returns an HTTP response.
+
+In Django, views are written as functions or class-based views.
+Purpose:
+Controls what data to show and which template to use for rendering.
+-------------------------------------------------------------
+4️⃣ Template
+
+The Template handles the presentation layer (UI).
+
+It’s usually an HTML file that displays the data sent from the View.
+
+Django’s template language allows adding dynamic content like loops and conditions.
+Purpose:
+Defines how the data is displayed to the user.
+----------------------------------------------------------------
+5️⃣ How They Work Together
+
+User sends a request (Ex: visiting /boards/).
+
+URL Dispatcher maps the request to a specific View.
+
+View interacts with the Model to get data from the database.
+
+View passes the data to a Template.
+
+Template renders the data into HTML and sends it back as a response to the user.
+
+the flow : User → URL → View → Model → Template → Response → User
+-------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Explain The folder structure in Django project :
 
 Discussion_board folder structure " Our project Name"
@@ -30,7 +104,12 @@ Discussion_board folder structure " Our project Name"
 7.7- views.py => request handlers (function-based or class-based views) that return responses/templates.
 ----------------------------------------------------------------------
 8- templates folder: contain the all HTML files we will use in the project
+----------------------------------------------------------------------
 9- Static folder : contain all css , js , fonts and so on 
+----------------------------------------------------------------------
+10- base.html file : is considered as a common container between all html files as we put on it all common scripts of code 
+                     so it will not be replicated  [for example : header , footer and logo of any projct ] 
+يعتبر زى قالب شترك ما بين كل الصفحات زى مثلا الفريم بتاع الصورة ممكن استخدم نفس الفريم لاكتر من صورة ولكن اللى بيتغير الصورة نفسها
 ------------------------------------------------------------------------
 note(1): django models by defult has id [unique , auto incremented] so you don't need to add it 
 
