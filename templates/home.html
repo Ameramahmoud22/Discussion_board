@@ -8,34 +8,42 @@
     <title>Boards</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
   </head>
+
   <body>
-    <div class="container">
-      <div class="p-4 bg-light mb-4">
-        <h1 class="h3">Boards</h1>
+    <div class="container mt-4">
+      <!-- header -->
+      <div class="p-3 mb-4 bg-light border rounded">
+        <h1 class="h4 text-muted mb-0">Boards</h1>
       </div>
-      <table class="table table-hover">
+
+      <!-- table -->
+      <table class="table table-hover align-middle">
         <thead class="table-dark">
           <tr>
-            <th>Boards</th>
+            <th>Board</th>
             <th>Posts</th>
-            <th>Topics</th>
+            <th>Topic</th>
             <th>Last Post</th>
           </tr>
         </thead>
 
         <tbody>
-          {%for board in boards%}
+          {% for board in boards %}
           <tr>
             <td>
-              {{board.name}}
-              <small class="text-muted d-block">{{board.description}}</small>
+              <a
+                href="{% url 'board_topics' board.pk %}"
+                class="fw-semibold text-decoration-none"
+              >
+                {{ board.name }}
+              </a>
+              <small class="text-muted d-block">{{ board.description }}</small>
             </td>
-
             <td>0</td>
             <td>0</td>
             <td></td>
           </tr>
-          {%endfor%}
+          {% endfor %}
         </tbody>
       </table>
     </div>
