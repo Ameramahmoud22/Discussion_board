@@ -24,4 +24,6 @@ def about(request):
 
 
 def new_topic(request, board_id):
-    return render(request, 'new_topic.html')
+    board = get_object_or_404(Board, pk=board_id)
+
+    return render(request, 'new_topic.html', {'board': board})
