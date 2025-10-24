@@ -100,6 +100,14 @@ Discussion_board folder structure " Our project Name"
                   : define the structure in base.html,and reuse it in home.html, new_topic.html, topics.html 
 يعتبر زى قالب شترك ما بين كل الصفحات زى مثلا الفريم بتاع الصورة ممكن استخدم نفس الفريم لاكتر من صورة ولكن اللى بيتغير الصورة نفسها
 ------------------------------------------------------------------------
+                              Using widget_tweaks 
+:Django template library that allows you to modify form fields’ HTML attributes directly in templates, 
+without having to change your form class or widget in Python code
+*To add CSS classes, placeholders, or other HTML attributes to form fields.
+*To make form styling easier, especially when using Bootstrap or Tailwind.
+*To avoid repeating code or modifying forms in the backend every time you want to adjust HTML
+11- includes/form.html : contain the base code for django forms 
+----------------------------------------------------------------------- 
 note(1): django models by defult has id [unique , auto incremented] so you don't need to add it 
 
 note(2) : 
