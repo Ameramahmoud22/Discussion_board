@@ -21,3 +21,7 @@ def board_topics(request, board_id):
 
 def about(request):
     return render(request, 'about.html')
+
+
+def new_topic(request, board_id):
+    return render(request, 'new_topic.html')
