@@ -9,14 +9,32 @@
   </head>
 
   <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'home' %}">Django Boards</a>
+        <div class="ml-auto">
+          {% if user.is_authenticated %}
+            <span class="navbar-text text-light">
+              Welcome, <strong>{{ user.username }}</strong>
+            </span>
+          {% else %}
+            <a class="nav-link d-inline text-light" href="{% url 'login' %}">Login</a>
+            <a class="nav-link d-inline text-light" href="{% url 'signup' %}">Sign Up</a>
+          {% endif %}
+        </div>
+      </div>
+    </nav>
+
     <div class="container mt-4">
-      <!-- header -->
+      <!-- Header -->
       <div class="p-3 mb-4 bg-light border rounded">
         <h1 class="h4 text-muted mb-0">{% block header %}{% endblock %}</h1>
       </div>
 
-      <!-- main content -->
-      {% block content %} {% endblock %}
+      {% block content %}{% endblock %}
     </div>
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
   </body>
 </html>
