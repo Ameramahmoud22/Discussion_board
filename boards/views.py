@@ -35,12 +35,12 @@ def new_topic(request, board_id):
         if form.is_valid():
             topic = form.save(commit=False)
             topic.board = board
-            topic.created_by = user
+            topic.created_by = request.user
             topic.save()
 
             post = Post.objects.create(
                 message=form.cleaned_data.get('message'),
-                created_by=user,
+                created_by=request.user,
                 topic=topic
 
             )
