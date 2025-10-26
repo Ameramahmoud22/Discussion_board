@@ -4,7 +4,7 @@ from .models import Board
 from .models import User
 from .models import Topic, Post
 from .forms import NewTopicForm
-
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
@@ -26,7 +26,7 @@ def board_topics(request, board_id):
 def about(request):
     return render(request, 'about.html')
 
-
+@login_required      # decorator
 def new_topic(request, board_id):
     board = get_object_or_404(Board, pk=board_id)
     user = User.objects.first()
