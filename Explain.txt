@@ -110,4 +110,5 @@ without having to change your form class or widget in Python code
 ----------------------------------------------------------------------- 
 note(1): django models by defult has id [unique , auto incremented] so you don't need to add it 
 
-note(2) : 
+note(2) : django decorator : is an auth model that make only logined users to make some functions 
+        : the one i use is @login_required 
