@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block header %}Create a New Account{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <div class="card shadow-sm p-4">
+    <h2 class="mb-4 text-center">Log in</h2>
+
+    <form method="post" novalidate>
+      {% csrf_token %}
+      {% include 'includes/form.html' %}
+      <div class="text-center mt-4">
+        <button type="submit" class="btn btn-success px-4">Login</button>
+      </div>
+      <br> 
+
+      <div class="card-footer text-muted text-center" >
+       Create New Account <a href="{% url 'signup'%}" > Sign Up</a>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
