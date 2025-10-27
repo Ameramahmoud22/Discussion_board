@@ -1,12 +1,16 @@
 from django.db import models
 # auth is already exist in django framework
 from django.contrib.auth.models import User
+from django.utils.text import Truncator
 
 
 # Create your models here.
 class Board(models.Model):
     name = models.CharField(max_length=30, unique=True)
     description = models.CharField(max_length=180)
+    
+    def __str__(self):
+        return self.name
 
 
 class Topic(models.Model):
@@ -16,6 +20,9 @@ class Topic(models.Model):
     created_by = models.ForeignKey(
         User, related_name="topics", on_delete=models.CASCADE)     # one-to-one relation with User
     created_dt = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.subject
 
 
 class Post (models.Model):
@@ -25,3 +32,7 @@ class Post (models.Model):
     created_by = models.ForeignKey(
         User, related_name="posts", on_delete=models.CASCADE)
     create_dt = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        truncated_message = Truncator(self.message)
+        return truncated_message.chars(40)
