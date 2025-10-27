@@ -14,6 +14,9 @@ class Board(models.Model):
     
     def get_posts_count(self):
         return Post.objects.filter(topic__board = self).count()
+    
+    def get_last_post(self):
+        return Post.objects.filter(topic__board=self).order_by('-create_dt').first()
 
 
 class Topic(models.Model):
@@ -22,7 +25,7 @@ class Topic(models.Model):
         Board, related_name="topics", on_delete=models.CASCADE)     # one-to-many relation with Board
     created_by = models.ForeignKey(
         User, related_name="topics", on_delete=models.CASCADE)     # one-to-one relation with User
-    created_dt = models.DateTimeField(auto_now_add=True)
+    create_dt = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
         return self.subject
