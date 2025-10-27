@@ -71,7 +71,7 @@ Discussion Board/
 - `subject`: CharField (max 250 characters)
 - `board`: ForeignKey to Board (one-to-many)
 - `created_by`: ForeignKey to User (one-to-one)
-- `created_dt`: DateTimeField (auto-generated)
+- `create_dt`: DateTimeField (auto-generated)
 
 **Post**
 
