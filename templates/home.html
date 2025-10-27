@@ -1,12 +1,9 @@
 {% extends 'base.html' %}
-
-
-{% block title %}Boards{% endblock %}
-
+{% block title %}Boards{% endblock %} 
 {% block header%}Boards{% endblock %}
- 
- 
- {% block content %}
+
+
+{% block content %}
 <!-- table -->
 <table class="table table-hover align-middle">
   <thead class="table-dark">
@@ -30,9 +27,16 @@
         </a>
         <small class="text-muted d-block">{{ board.description }}</small>
       </td>
-      <td>0</td>
-      <td>0</td>
-      <td></td>
+      <td>{{board.get_posts_count}}</td>
+      <td>{{board.topics.count}}</td>
+      <td>
+   {% with board.get_last_post as last_post %} 
+        {% if last_post %} by {{ last_post.created_by.username }} at
+        {{ last_post.create_dt }} 
+      {% else %} No posts yet
+        {% endif %}
+        {% endwith %} 
+      </td>
     </tr>
     {% endfor %}
   </tbody>
