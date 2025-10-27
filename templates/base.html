@@ -47,7 +47,7 @@
                 class="dropdown-menu dropdown-menu-end"
                 aria-labelledby="userDropdown"
               >
-                <li><a class="dropdown-item" href="#">My Account</a></li>
+                
                 <li>
                   <a class="dropdown-item" href="{% url 'change_password' %}"
                     >Change Password</a
@@ -86,7 +86,8 @@
     </nav>
 
     <div class="container mt-4">
-      {% block header %}{% endblock %} {% block content %}{% endblock %}
+      {% block header %}{% endblock %}
+       {% block content %}{% endblock %}
     </div>
 
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
