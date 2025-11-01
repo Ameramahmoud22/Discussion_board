@@ -128,6 +128,13 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://discussionboard-production.up.railway.app',
+    'https://www.discussionboard-production.up.railway.app',
+]
+
+
+
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'login'
