@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
+import dj_database_url
 import os
 from pathlib import Path
 
@@ -77,16 +78,15 @@ WSGI_APPLICATION = 'Discussion_board.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Dissussion_Board',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres1234',
-        'HOST': 'localhost',
-        'PORT': '5432'
-    }
+    'default': dj_database_url.config(
+        default='postgresql://postgres:QfBCnaJxhgFjxQeyGKTOfThFePrDbEoo@shinkansen.proxy.rlwy.net:59225/railway',
+        conn_max_age=600,
+        ssl_require=True
+    )
 }
+
 
 
 # Password validation
@@ -125,6 +125,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
